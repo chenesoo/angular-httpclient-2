@@ -1,0 +1,26 @@
+<h1>Photo List:</h1>
+
+<button (click)="onButtonJSONPlaceholder()">JSONPlaceholder</button>
+<button (click)="onButtonPicsum()">Picsum</button>
+
+<button (click)="onPageDown()">-</button>
+<button (click)="onPageUp()">+</button>
+<input type="text" [(ngModel)]="photoPageString" (input)="onPageInput()" />
+
+<div>
+  pagina: {{ photoPage }}
+
+  <ul *ngIf="viewPhotoList">
+    <li *ngFor="let p of photoList">
+      <img [src]="p.thumbnailUrl" />
+      {{ p.title }}
+    </li>
+  </ul>
+
+  <ul *ngIf="viewPicsumPhotoList">
+    <li *ngFor="let p of picsumPhotoList">
+      <img [src]="p.download_url" width="50px" />
+      {{ p.author }}
+    </li>
+  </ul>
+</div>
